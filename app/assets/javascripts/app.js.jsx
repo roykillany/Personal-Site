@@ -7,8 +7,7 @@
 	  if ($content.length > 0) {
 			React.render(
 				<Router>
-					<Route path="/" component={}>
-						// <Route path="" component={}/>
+					<Route path="/" component={Index}>
 					</Route>
 				</Router>,
 				document.getElementById("content")
