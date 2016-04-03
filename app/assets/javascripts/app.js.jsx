@@ -1,17 +1,17 @@
-(function() {
-	var Route = ReactRouter.Route;
-	var Router = ReactRouter.Router;
+window.startUp = {
 
-	$(document).ready(function() {
-		var $content = $("#content");
-	  if ($content.length > 0) {
-			React.render(
-				<Router>
-					<Route path="/" component={Index}>
-					</Route>
-				</Router>,
-				document.getElementById("content")
-			)
-		}
-	});
-})();
+  initialize: function () {
+    var Router = ReactRouter.Router,
+        Route = ReactRouter.Route,
+        IndexRoute = ReactRouter.IndexRoute;
+
+    React.render(
+      <Router>
+        <Route path="/" component={ Index }>
+          <Route path="admin" component={ AdminForm }/>
+        </Route>
+      </Router>,
+      document.getElementById('content')
+    );
+  }
+};
