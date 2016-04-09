@@ -1,42 +1,41 @@
 (function(root) {
   root.AdminForm = React.createClass({
 
-    // getInitialState: function () {
-    //   return {
-    //     currentUser: CurrentUserStore.currentUser()
-    //   };
-    // },
-    //
-    // componentDidMount: function () {
-    //   CurrentUserStore.addChangeHandler(this._onChange);
-    // },
-    //
-    // _onChange: function () {
-    //   this.setState({currentUser: CurrentUserStore.currentUser()});
-    // },
-    //
-    // logout: function () {
-    //   SessionsApiUtil.logout();
-    // },
+    getInitialState: function () {
+      return {
+        currentUser: CurrentUserStore.currentUser()
+      };
+    },
+
+    componentDidMount: function () {
+      CurrentUserStore.addChangeHandler(this._onChange);
+    },
+
+    _onChange: function () {
+      this.setState({currentUser: CurrentUserStore.currentUser()});
+    },
+
+    logout: function () {
+      SessionsApiUtil.logout();
+    },
 
     render: function() {
-      // if (CurrentUserStore.isLoggedIn()) {
-      //   return (
-      //     <div>
-      //       Logged in as
-      //       { this.state.currentUser.email }
-      //       <button onClick={ this.logout }>LOG OUT</button>
-      //     </div>
-      //   );
-      // } else {
       debugger
+      if (CurrentUserStore.isLoggedIn()) {
         return (
           <div>
-          Hallo!
+            Logged in as
+            { this.state.currentUser.username }
+            <button onClick={ this.logout }>LOG OUT</button>
           </div>
         );
-      // } <SessionForm />
-
+      } else {
+        return (
+          <div>
+            <SessionForm />
+          </div>
+        );
+      }
     },
 
   });

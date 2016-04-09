@@ -4,10 +4,9 @@
 
     submit: function (e) {
       e.preventDefault();
-
       var credentials = $(e.currentTarget).serializeJSON();
       SessionsApiUtil.login(credentials, function () {
-        this.history.pushState(null, "/users");
+        this.history.pushState(null, "/admin");
       }.bind(this));
     },
 

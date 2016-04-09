@@ -6,7 +6,6 @@ var SessionsApiUtil = {
       dataType: 'json',
       data: credentials,
       success: function (currentUser) {
-        console.log("logged in!");
         CurrentUserActions.receiveCurrentUser(currentUser);
         success && success();
       }
