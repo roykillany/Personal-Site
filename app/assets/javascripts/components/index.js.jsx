@@ -3,7 +3,7 @@
 
   getInitialState: function () {
     return {
-      currentUser: CurrentUserStore.currentUser()
+      currentUser: null
     };
   },
 
@@ -27,6 +27,12 @@
           child, { currentUser: this.state.currentUser }
         );
     }.bind(this));
+
+    if (!this.state.currentUser) {
+      return (
+        <div></div>
+      );
+    }
 
 		return (
 			<div className="index">
