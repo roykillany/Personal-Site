@@ -6,7 +6,7 @@
     },
 
     render: function() {
-      debugger
+      
       if (CurrentUserStore.isLoggedIn()) {
         return (
           <div>
