@@ -1,6 +1,7 @@
 class Api::SessionsController < ApplicationController
 
   def show
+    
     unless current_user
       render json: {}
       return
