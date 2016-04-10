@@ -1,5 +1,5 @@
 (function(root) {
-  root.Index = React.createClass({
+  root.Header = React.createClass({
 
   getInitialState: function () {
     return {
@@ -35,11 +35,22 @@
     }
 
 		return (
-			<div className="index">
-				<header>THIS IS THE SITE</header>
-				<img />
-				{childrenWithProps}
-			</div>
+      <div>
+  			<div className="header">
+  				<header>HEADER</header>
+          <ul className="header-list group">
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/rezepte/">Rezepte</a></li>
+            <li><a href="#/gaestebuch">Gaestebuch</a></li>
+            <li><a href="#/admin">Admin</a></li>
+            <li><a href="#/links">Links</a></li>
+            <li><a href="#/fotos">Fotos</a></li>
+            <li><a href="#/geburstage">Geburtstage</a></li>
+          </ul>
+  				<img />
+  				{childrenWithProps}
+  			</div>
+      </div>
 		);
 	}
 });
