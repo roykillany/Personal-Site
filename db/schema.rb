@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409150700) do
+ActiveRecord::Schema.define(version: 20160410022109) do
 
   create_table "links", force: :cascade do |t|
     t.string   "alias"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160409150700) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "photos", force: :cascade do |t|
