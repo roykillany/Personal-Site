@@ -28,6 +28,7 @@
 		return (
 			<div>
         <ul class="links">
+          {this.state.links}
         </ul>
         {link_form}
 			</div>
