@@ -1,5 +1,5 @@
 class AddTypeToLinks < ActiveRecord::Migration
   def change
-    add_column :links, :type, :string
+    add_column :links, :link_type, :string
   end
 end

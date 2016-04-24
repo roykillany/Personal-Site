@@ -5,6 +5,14 @@ var LinkActions = {
       actionType: LinkConstants.RECEIVE_LINKS,
       links: links
     });
-  }
+  },
+
+  receiveNewLink: function (link) {
+    AppDispatcher.dispatch({
+      actionType: LinkConstants.RECEIVE_LINK,
+      newLink: link
+    });
+  },
+
 
 };

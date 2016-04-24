@@ -12,4 +12,16 @@ var LinkUtil = window.LinkUtil = {
     });
   },
 
+  createLink: function(link) {
+    $.ajax({
+      url: '/api/links',
+      type: 'POST',
+      dataType: 'json',
+      data: link,
+      success: function (data) {
+        LinkActions.receiveNewLink(data);
+      }
+    });
+  },
+
 };

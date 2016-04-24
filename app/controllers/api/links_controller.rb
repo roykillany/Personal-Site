@@ -5,7 +5,8 @@ class Api::LinksController < ApplicationController
 	end
 
 	def create
-		@link = Link.new(link_params)
+		
+		@link = Link.new({url: params["url"], alias: params["alias"], link_type: params["link_type"]})
 
 		begin
 			@link.save!
@@ -47,6 +48,6 @@ class Api::LinksController < ApplicationController
 
 	private
 	def link_params
-		params.require(:link).permit(:alias, :url, :comment)
+		params.require(:link).permit(:alias, :url, :link_type)
 	end
 end

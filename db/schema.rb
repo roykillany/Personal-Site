@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160410022109) do
     t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
+    t.string   "link_type"
   end
 
   create_table "photos", force: :cascade do |t|

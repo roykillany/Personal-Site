@@ -1,7 +1,7 @@
 (function (root) {
   var CHANGE_EVENT = "change";
 
-  var _links = {};
+  var _links = [];
 
   root.LinkStore = $.extend({}, EventEmitter.prototype, {
 
@@ -14,7 +14,15 @@
     },
 
     links: function () {
-      return $.extend({}, _links);
+      return _links.slice(0);
+    },
+
+    changed: function () {
+      this.emit(CHANGE_EVENT);
+    },
+
+    addNewLink: function (newLink) {
+      _links.push(newLink);
     },
 
     dispatcherId: AppDispatcher.register(function (payload) {
@@ -22,10 +30,15 @@
 
         case LinkConstants.RECEIVE_LINKS:
           _links = payload.links;
-          LinkStore.emit(CHANGE_EVENT);
+          LinkStore.changed();
           break;
+        case LinkConstants.RECEIVE_LINK:
+          LinkStore.addNewLink(payload.newLink.link);
+          LinkStore.changed();
+        break;
 
       }
-    }),
+    })
+
   });
 })(this);

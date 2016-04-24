@@ -7,7 +7,7 @@
 
     componentDidMount: function () {
       LinkStore.addChangeHandler(this._onLinkChange);
-      QuestionUtil.fetchUnansweredQuestions();
+      LinkUtil.fetchLinks();
     },
 
     componentWillUnmount: function () {
@@ -21,14 +21,19 @@
     },
 
   render: function() {
+
     var link_form = <div></div>;
+    var links = <div></div>;
     if (CurrentUserStore.isLoggedIn()) {
       link_form = <LinksForm />;
     }
+    if (this.state.links[0] !== undefined) {
+      links = <li>{this.state.links[0].alias}</li>;
+    }
 		return (
 			<div>
-        <ul class="links">
-          {this.state.links}
+        <ul className="links">
+          {links}
         </ul>
         {link_form}
 			</div>
