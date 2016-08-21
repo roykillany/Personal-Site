@@ -23,17 +23,40 @@
   render: function() {
 
     var link_form = <div></div>;
-    var links = <div></div>;
+    var rezepte_links = <div></div>;
+    var sprache_links = <div></div>;
+    var andere_links = <div></div>;
+
     if (CurrentUserStore.isLoggedIn()) {
       link_form = <LinksForm />;
     }
     if (this.state.links[0] !== undefined) {
-      links = <li>{this.state.links[0].alias}</li>;
+      rezepte_links = [];
+      sprache_links = [];
+      andere_links = [];
+      for (var i = 0; i < this.state.links.length; i++){
+        if (this.state.links[i].link_type === "sprache") {
+            sprache_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
+        } else if (this.state.links[i].link_type === "rezepte") {
+            rezepte_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
+        } else {
+            andere_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
+        }
+      }
     }
 		return (
 			<div>
-        <ul className="links">
-          {links}
+        <ul className="rezepte_links">
+          Rezepte
+          {rezepte_links}
+        </ul>
+        <ul className="sprache_links">
+          Sprache
+          {sprache_links}
+        </ul>
+        <ul className="andere_links">
+          Andere
+          {andere_links}
         </ul>
         {link_form}
 			</div>
