@@ -5,7 +5,6 @@ var PostUtil = window.PostUtil = {
       url: '/api/posts',
       type: 'GET',
       dataType: 'json',
-      data: {Unanswered: true},
       success: function (data) {
         PostActions.receiveAllPosts(data);
       }
