@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160410022109) do
+ActiveRecord::Schema.define(version: 20160723140617) do
 
   create_table "links", force: :cascade do |t|
     t.string   "alias"
@@ -33,18 +33,14 @@ ActiveRecord::Schema.define(version: 20160410022109) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "first_name", null: false
-    t.string   "last_name",  null: false
     t.string   "email",      null: false
     t.string   "comment",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "posts", ["email"], name: "index_posts_on_email"
-  add_index "posts", ["first_name", "last_name"], name: "index_posts_on_first_name_and_last_name"
-  add_index "posts", ["first_name"], name: "index_posts_on_first_name"
-  add_index "posts", ["last_name"], name: "index_posts_on_last_name"
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

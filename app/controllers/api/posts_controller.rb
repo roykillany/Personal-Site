@@ -33,6 +33,6 @@ class Api::PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:first_name, :last_name, :email, :comment)
+		params.require(:post).permit(:name, :email, :comment)
 	end
 end
