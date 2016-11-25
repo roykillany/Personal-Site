@@ -20,26 +20,43 @@
     });
   },
 
+  convertDate: function (inputFormat) {
+    function pad(s) { return (s < 10) ? '0' + s : s; }
+    var d = new Date(inputFormat);
+    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+  },
+
 
   render: function() {
 
     var birthday_form = <BirthdaysForm />;
     var birthdays = <div></div>;
-
+    var todays = <div></div>;
     if (this.state.birthdays[0] !== undefined) {
       birthdays = [];
-
+      todays = [];
+      today = this.convertDate(new Date());
       for (var i = 0; i < this.state.birthdays.length; i++){
-            birthdays.push(<li>{this.state.birthdays[i].name}:{this.state.birthdays[i].birthdate}</li>);
+            birthday = this.convertDate(this.state.birthdays[i].birthdate);
+            if (birthday == today) {
+              todays.push(<li>{this.state.birthdays[i].name}:{birthday}</li>);
+            }
+            birthdays.push(<li>{this.state.birthdays[i].name}:{birthday}</li>);
       }
     }
 
 		return (
 			<div>
         <ul className="birthdays">
-          Birthdays
+          Geburtstage
           {birthdays}
         </ul>
+        <br></br>
+        <ul className="todays">
+          Heutige Geburtstage
+          {todays}
+        </ul>
+        <br></br>
         {birthday_form}
 			</div>
 		);

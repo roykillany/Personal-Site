@@ -13,7 +13,7 @@ window.startUp = {
           <Route path="links" component={ Links }/>
           <Route path="fotos" component={ Photos }/>
           <Route path="gaestebuch" component={ Guestbook }/>
-          <Route path="geburstage" component={ Birthdays }/>
+          <Route path="geburtstage" component={ Birthdays } onEnter={requireAuth}/>
           <Route path="rezepte" component={ Recipes }/>
         </Route>
       </Router>,
@@ -21,3 +21,12 @@ window.startUp = {
     );
   }
 };
+
+function requireAuth(nextState, replace) {
+  if (!CurrentUserStore.isLoggedIn()) {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+  }
+}
