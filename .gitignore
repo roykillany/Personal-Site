@@ -20,3 +20,5 @@
 .DS_STORE
 .byebug_history
 /.DS_STORE
+
+.env
