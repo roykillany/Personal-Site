@@ -14,6 +14,7 @@
     handleSubmit: function (e) {
       e.preventDefault();
       BirthdayUtil.createBirthday(this.state);
+      this.state = this.getInitialState();
     },
 
     render: function() {
