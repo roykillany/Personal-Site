@@ -21,7 +21,7 @@
   },
 
 	render: function() {
-
+    var birthdays;
     var childrenWithProps = React.Children.map(this.props.children, function(child) {
         return React.cloneElement(
           child, { currentUser: this.state.currentUser }
@@ -34,10 +34,13 @@
       );
     }
 
+    if (CurrentUserStore.isLoggedIn()) {
+      birthdays = <li><a href="#/geburtstage">Geburtstage</a></li>;
+    }
+
 		return (
       <div>
   			<div className="header">
-  				<header>HEADER</header>
           <ul className="header-list group">
             <li><a href="#/">Home</a></li>
             <li><a href="#/rezepte/">Rezepte</a></li>
@@ -45,7 +48,7 @@
             <li><a href="#/admin">Admin</a></li>
             <li><a href="#/links">Links</a></li>
             <li><a href="#/fotos">Fotos</a></li>
-            <li><a href="#/geburstage">Geburtstage</a></li>
+            {birthdays}
           </ul>
   				<img />
   				{childrenWithProps}
