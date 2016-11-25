@@ -13,5 +13,6 @@
  *= require_tree .
  *= require basic
  *= require dropzone.min
+ *= require fullcalendar.min
  *= require_self
  */

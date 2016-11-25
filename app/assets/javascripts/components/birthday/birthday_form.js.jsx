@@ -5,7 +5,8 @@
 
     getInitialState: function () {
       return ({
-        name: '',
+        firstname: '',
+        lastname: '',
         birthdate: ''
       });
     },
@@ -21,8 +22,14 @@
           <form onSubmit={this.handleSubmit}>
 
             <div>
-              <label>Name
-                <input type="text" className="name" valueLink={this.linkState('name')}/>
+              <label>Vorname
+                <input type="text" className="firstname" valueLink={this.linkState('firstname')}/>
+              </label>
+            </div>
+
+            <div>
+              <label>Nachname
+                <input type="text" className="lastname" valueLink={this.linkState('lastname')}/>
               </label>
             </div>
 

@@ -39,9 +39,9 @@
       for (var i = 0; i < this.state.birthdays.length; i++){
             birthday = this.convertDate(this.state.birthdays[i].birthdate);
             if (birthday == today) {
-              todays.push(<li>{this.state.birthdays[i].name}:{birthday}</li>);
+              todays.push(<li>{this.state.birthdays[i].firstname}{this.state.birthdays[i].lastname}:{birthday}</li>);
             }
-            birthdays.push(<li>{this.state.birthdays[i].name}:{birthday}</li>);
+            birthdays.push(<li>{this.state.birthdays[i].firstname}{this.state.birthdays[i].lastname}:{birthday}</li>);
       }
     }
 
@@ -56,6 +56,7 @@
           Heutige Geburtstage
           {todays}
         </ul>
+        <div id="calendar"></div>
         <br></br>
         {birthday_form}
 			</div>
