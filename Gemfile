@@ -10,6 +10,7 @@ gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
 gem 'active_model_serializers', '0.8.1'
 gem 'paperclip', '~> 4.3.1'
+gem 'aws-sdk'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

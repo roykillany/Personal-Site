@@ -1,4 +1,4 @@
-class PhotosController < ApplicationController
+class Api::PhotosController < ApplicationController
 	def show
 		begin
 			@photo = Photo.find(params[:id])
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
 	end
 
 	def create
-		@photo = Photo.new(link_params)
+		@photo = Photo.new(photo_params)
 
 		begin
 			@photo.save!
@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
 	def update
 		@photo = Photo.find(params[:id])
 		begin
-			@photo.update(link_params)
+			@photo.update(photo_params)
 			@photo.save!
 			render json: Api::PhotoSerializer.new(@photo)
 		rescue => e
@@ -59,6 +59,6 @@ class PhotosController < ApplicationController
 
 	private
 	def photo_params
-		params.require(:photo).permit(:details)
+		params.require(:photo).permit(:details, :image)
 	end
 end

@@ -1,0 +1,9 @@
+@import "base/colors";
+
+#photo-dropzone {
+  .dropzone {
+    border: 2px dashed $base-color;
+    border-radius: 5px;
+    background: white;
+  }
+}
