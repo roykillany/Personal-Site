@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore all ds_store
+.DS_STORE
+.byebug_history
+/.DS_STORE
