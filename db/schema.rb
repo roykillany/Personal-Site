@@ -11,16 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911213402) do
+ActiveRecord::Schema.define(version: 20161125160415) do
 
   create_table "birthdays", force: :cascade do |t|
-    t.string   "name",       null: false
     t.datetime "birthdate",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_name"
+    t.string   "first_name"
   end
-
-  add_index "birthdays", ["name"], name: "index_birthdays_on_name", unique: true
 
   create_table "links", force: :cascade do |t|
     t.string   "alias"

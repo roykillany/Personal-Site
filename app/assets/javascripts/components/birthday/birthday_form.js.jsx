@@ -5,7 +5,8 @@
 
     getInitialState: function () {
       return ({
-        name: '',
+        first_name: '',
+        last_name: '',
         birthdate: ''
       });
     },
@@ -13,6 +14,7 @@
     handleSubmit: function (e) {
       e.preventDefault();
       BirthdayUtil.createBirthday(this.state);
+      this.state = this.getInitialState();
     },
 
     render: function() {
@@ -21,8 +23,14 @@
           <form onSubmit={this.handleSubmit}>
 
             <div>
-              <label>Name
-                <input type="text" className="name" valueLink={this.linkState('name')}/>
+              <label>Vorname
+                <input type="text" className="first_name" valueLink={this.linkState('first_name')}/>
+              </label>
+            </div>
+
+            <div>
+              <label>Nachname
+                <input type="text" className="last_name" valueLink={this.linkState('last_name')}/>
               </label>
             </div>
 

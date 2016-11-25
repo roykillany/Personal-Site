@@ -14,5 +14,6 @@
  *= require basic
  *= require dropzone.min
  *= require font-awesome-4.7.0/css/font-awesome.min
+ *= require fullcalendar.min
  *= require_self
  */

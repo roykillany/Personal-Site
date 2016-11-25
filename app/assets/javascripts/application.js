@@ -16,6 +16,8 @@
 //= require react_ujs
 //= require jquery.serializeJSON
 //= require dropzone.min
+//= require moment.min
+//= require fullcalendar.min
 //= require flux
 //= require eventemitter
 //= require react_router

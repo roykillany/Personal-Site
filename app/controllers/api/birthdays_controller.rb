@@ -6,7 +6,7 @@ class Api::BirthdaysController < ApplicationController
 
 	def create
 
-		@birthday = Birthday.new({name: params["name"], birthdate: params["birthdate"]})
+		@birthday = Birthday.new({first_name: params["first_name"], last_name: params["last_name"], birthdate: params["birthdate"]})
 
 		begin
 			@birthday.save!
@@ -48,6 +48,6 @@ class Api::BirthdaysController < ApplicationController
 
 	private
 	def birthday_params
-		params.require(:birthday).permit(:name, :birthdate)
+		params.require(:birthday).permit(:first_name, :last_name, :birthdate)
 	end
 end
