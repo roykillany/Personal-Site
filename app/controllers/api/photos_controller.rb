@@ -48,7 +48,7 @@ class Api::PhotosController < ApplicationController
 		@photo = Photo.find(params[:id])
 		begin
 			@photo.destroy!
-			render json: { ok: "Photo deleted" }, status: 204
+			render json: { id: @photo.id }, status: 200
 		rescue => e
 			p "***photos#destroy***"
 			p e.message
