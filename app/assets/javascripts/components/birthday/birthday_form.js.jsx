@@ -5,8 +5,8 @@
 
     getInitialState: function () {
       return ({
-        firstname: '',
-        lastname: '',
+        first_name: '',
+        last_name: '',
         birthdate: ''
       });
     },
@@ -23,13 +23,13 @@
 
             <div>
               <label>Vorname
-                <input type="text" className="firstname" valueLink={this.linkState('firstname')}/>
+                <input type="text" className="first_name" valueLink={this.linkState('first_name')}/>
               </label>
             </div>
 
             <div>
               <label>Nachname
-                <input type="text" className="lastname" valueLink={this.linkState('lastname')}/>
+                <input type="text" className="last_name" valueLink={this.linkState('last_name')}/>
               </label>
             </div>
 

@@ -1,3 +1,3 @@
 class Api::BirthdaySerializer < ActiveModel::Serializer
-	attributes :id, :firstname, :lastname, :birthdate
+	attributes :id, :first_name, :last_name, :birthdate
 end

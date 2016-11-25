@@ -23,7 +23,22 @@
   convertDate: function (inputFormat) {
     function pad(s) { return (s < 10) ? '0' + s : s; }
     var d = new Date(inputFormat);
-    return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+    if (typeof inputFormat == "string") {
+      return [pad(d.getDate() + 1), pad(d.getMonth()+1), d.getFullYear()].join('/');
+    } else {
+      return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+    }
+
+  },
+
+  convertForCalendar: function (firstname,lastname,date) {
+      return  {
+            title  : lastname + " " + firstname,
+            start  : date,
+            allDay : {days: 1}, 
+            backgroundColor: '#e88ec3',
+            borderColor: '#ca79a9'
+        }
   },
 
 
@@ -38,27 +53,37 @@
       today = this.convertDate(new Date());
       for (var i = 0; i < this.state.birthdays.length; i++){
             birthday = this.convertDate(this.state.birthdays[i].birthdate);
-            if (birthday == today) {
-              todays.push(<li>{this.state.birthdays[i].firstname}{this.state.birthdays[i].lastname}:{birthday}</li>);
+            if (birthday.slice(0,-4) == today.slice(0,-4)) {
+              todays.push(<li>{this.state.birthdays[i].first_name}{this.state.birthdays[i].last_name}:{birthday}</li>);
             }
-            birthdays.push(<li>{this.state.birthdays[i].firstname}{this.state.birthdays[i].lastname}:{birthday}</li>);
+            birthdays.push(this.convertForCalendar(this.state.birthdays[i].first_name,this.state.birthdays[i].last_name,new Date().getFullYear() + this.state.birthdays[i].birthdate.slice(4,10)));
+            birthdays.push(this.convertForCalendar(this.state.birthdays[i].first_name,this.state.birthdays[i].last_name,(new Date().getFullYear() - 1) + this.state.birthdays[i].birthdate.slice(4,10)));
+            birthdays.push(this.convertForCalendar(this.state.birthdays[i].first_name,this.state.birthdays[i].last_name,(new Date().getFullYear() + 1) + this.state.birthdays[i].birthdate.slice(4,10)));
+
       }
+
+      $('#calendar').fullCalendar({
+          events: birthdays,
+          header: {
+                      left:   'today prev,next',
+                      center: 'title',
+                      right:  'basicDay,basicWeek,month,listYear'
+                  }
+      })
+
     }
 
 		return (
 			<div>
-        <ul className="birthdays">
-          Geburtstage
-          {birthdays}
-        </ul>
         <br></br>
         <ul className="todays">
           Heutige Geburtstage
           {todays}
         </ul>
-        <div id="calendar"></div>
         <br></br>
         {birthday_form}
+        <br></br>
+        <div id="calendar"></div>
 			</div>
 		);
 	}
