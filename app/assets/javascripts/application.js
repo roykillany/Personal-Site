@@ -20,5 +20,4 @@
 //= require eventemitter
 //= require react_router
 //= require components
-//= require dropzone.min
 //= require_tree .
