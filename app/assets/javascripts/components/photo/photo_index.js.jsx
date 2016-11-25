@@ -24,8 +24,7 @@
         url: "api/photos",
         paramName: "photo[image]",
         addRemoveLinks: true,
-
-      })
+      });
 
       this.dropzone.on("success", function(file, resp) {
         PhotoActions.receiveNewPhoto(resp);
