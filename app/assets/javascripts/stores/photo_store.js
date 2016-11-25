@@ -39,7 +39,6 @@
 
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
-
         case PhotoConstants.RECEIVE_PHOTOS:
           _photos = payload.photos;
           PhotoStore.changed();
@@ -47,9 +46,11 @@
         case PhotoConstants.RECEIVE_PHOTO:
           PhotoStore.addNewPhoto(payload.newPhoto.photo);
           PhotoStore.changed();
+          break;
         case PhotoConstants.REMOVE_PHOTO:
           PhotoStore.removePhoto(payload.photoId);
           PhotoStore.changed();
+          break;
         break;
 
       }
