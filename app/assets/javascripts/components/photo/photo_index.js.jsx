@@ -11,6 +11,7 @@
 
     componentWillUnmount: function () {
       PhotoStore.removeChangeHandler(this._onPhotoChange);
+      this.dropzone.disable();
     },
 
     _onPhotoChange: function () {
