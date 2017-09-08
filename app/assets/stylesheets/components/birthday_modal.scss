@@ -1,0 +1,37 @@
+@import "base/colors";
+
+.birthday_modal--container {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.birthday_modal--content {
+  background-color: rgb(243, 245, 249);
+  border: 1px solid #dcc6c6;
+  border-radius: 10px;
+  color: rgb(71, 77, 89);
+  font-family: sans-serif;
+  height: 500px;
+  left: 50%;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+
+  input:hover{
+    cursor: pointer;
+  }
+
+  h4 {
+    color: rgb(71, 77, 89);
+    font-size: 22px;
+    font-style: normal;
+    text-align: center;
+  }
+}

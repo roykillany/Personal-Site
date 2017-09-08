@@ -4,11 +4,11 @@
   render: function() {
 		return (
 			<div>
-        <ul class="layers">
-          <li class="layer1">BIOGRAPHY</li>
-          <li class="layer2">PHOTOS</li>
-          <li class="layer3">LINKS</li>
-          <li class="layer4">GUESTBOOK</li>
+        <ul className="layers">
+          <li className="layer1">BIOGRAPHY</li>
+          <li className="layer2">PHOTOS</li>
+          <li className="layer3">LINKS</li>
+          <li className="layer4">GUESTBOOK</li>
         </ul>
       </div>
 		);

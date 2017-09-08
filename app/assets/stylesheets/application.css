@@ -10,10 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require foundation_and_overrides
  *= require_tree .
  *= require basic
  *= require dropzone.min
  *= require font-awesome-4.7.0/css/font-awesome.min
  *= require fullcalendar.min
+ *= require jquery-ui
  *= require_self
  */
