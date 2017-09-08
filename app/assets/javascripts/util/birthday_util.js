@@ -5,8 +5,8 @@ var BirthdayUtil = window.BirthdayUtil = {
       url: '/api/birthdays',
       type: 'GET',
       dataType: 'json',
-      success: function (data) {
-        BirthdayActions.receiveAllBirthdays(data);
+      success: function (birthday_data) {
+        BirthdayActions.receiveAllBirthdays(birthday_data);
       }
     });
   },
@@ -16,11 +16,39 @@ var BirthdayUtil = window.BirthdayUtil = {
       url: '/api/birthdays',
       type: 'POST',
       dataType: 'json',
-      data: birthday,
-      success: function (data) {
-        BirthdayActions.receiveNewBirthday(data);
+      data: {birthday: birthday},
+      success: function (birthday_data) {
+        BirthdayActions.receiveNewBirthday(birthday_data);
       }
     });
   },
+
+  updateBirthday: function (id, data){
+    $.ajax({
+      url: '/api/birthdays/' + id,
+      type: 'PATCH',
+      dataType: 'json',
+      data: {
+        birthday: {
+          name: data.name,
+          birthdate: data.birthdate
+        }
+      },
+      success: function (birthday_data) {
+        BirthdayActions.receiveUpdatedBirthday(birthday_data);
+      }
+    });
+  },
+
+  deleteBirthday: function (id) {
+    $.ajax({
+      method: 'DELETE',
+      url: 'api/birthdays/' + id,
+      dataType: 'json',
+      success: function(birthday_data) {
+        BirthdayActions.receiveDeletedBirthday(birthday_data);
+      }
+    });
+  }
 
 };

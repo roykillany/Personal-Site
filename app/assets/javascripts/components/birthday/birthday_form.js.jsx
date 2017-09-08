@@ -5,44 +5,50 @@
 
     getInitialState: function () {
       return ({
-        first_name: '',
-        last_name: '',
+        name: '',
         birthdate: ''
+      });
+    },
+
+    componentDidMount: function () {
+      var _this = this;
+      $(".birthdate").datepicker({
+        dateFormat: "dd/mm/yy",
+        onSelect: function(value) {
+          _this.setState({birthdate: value});
+        }.bind(_this)
       });
     },
 
     handleSubmit: function (e) {
       e.preventDefault();
       BirthdayUtil.createBirthday(this.state);
-      this.state = this.getInitialState();
+      this.setState(this.getInitialState());
+      $(".birthdate").val("");
     },
 
     render: function() {
   		return (
-  			<div>
-          <form onSubmit={this.handleSubmit}>
+  			<Row>
+          <Column size="6">
+            <form onSubmit={this.handleSubmit}>
 
-            <div>
-              <label>Vorname
-                <input type="text" className="first_name" valueLink={this.linkState('first_name')}/>
-              </label>
-            </div>
+              <div>
+                <label>Name
+                  <input type="text" className="birthday_name" valueLink={this.linkState('name')}/>
+                </label>
+              </div>
 
-            <div>
-              <label>Nachname
-                <input type="text" className="last_name" valueLink={this.linkState('last_name')}/>
-              </label>
-            </div>
+              <div>
+                <label>Geburtstag
+                  <input type="text" className="birthdate" onChange={this.handleDatepicker}/>
+                </label>
+              </div>
 
-            <div>
-              <label>Geburtstag
-                <input type="date" className="birthdate" valueLink={this.linkState('birthdate')}/>
-              </label>
-            </div>
-
-            <button className="birthday-submit">Speicher</button>
-          </form>
-  			</div>
+              <button className="button">Speicher</button>
+            </form>
+          </Column>
+  			</Row>
   		);
   	}
   });

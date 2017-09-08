@@ -14,5 +14,18 @@ var BirthdayActions = {
     });
   },
 
+  receiveUpdatedBirthday: function (birthday) {
+    AppDispatcher.dispatch({
+      actionType: BirthdayConstants.UPDATE_BIRTHDAY,
+      updatedBirthday: birthday
+    });
+  },
+
+  receiveDeletedBirthday: function (birthday) {
+    AppDispatcher.dispatch({
+      actionType: BirthdayConstants.DELETE_BIRTHDAY,
+      deletedBirthday: birthday
+    });
+  },
 
 };

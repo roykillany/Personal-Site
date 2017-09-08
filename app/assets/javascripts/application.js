@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require react
 //= require react_ujs
 //= require jquery.serializeJSON
@@ -19,7 +20,10 @@
 //= require moment.min
 //= require fullcalendar.min
 //= require flux
+//= require foundation
 //= require eventemitter
 //= require react_router
 //= require components
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

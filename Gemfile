@@ -4,6 +4,7 @@ gem 'rails', '4.2.8'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'bcrypt', '~> 3.1.7'
 gem 'thin'
@@ -12,6 +13,7 @@ gem 'flux-rails-assets'
 gem 'active_model_serializers', '0.8.1'
 gem 'paperclip', '~> 4.3.1'
 gem 'aws-sdk', '< 2.0'
+gem 'foundation-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

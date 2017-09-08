@@ -5,9 +5,7 @@ class Api::BirthdaysController < ApplicationController
 	end
 
 	def create
-
-		@birthday = Birthday.new({first_name: params["first_name"], last_name: params["last_name"], birthdate: params["birthdate"]})
-
+		@birthday = Birthday.new(birthday_params)
 		begin
 			@birthday.save!
 			render json: Api::BirthdaySerializer.new(@birthday)
@@ -37,7 +35,7 @@ class Api::BirthdaysController < ApplicationController
 		@birthday = Birthday.find(params[:id])
 		begin
 			@birthday.destroy!
-			render json: { ok: "Birthday deleted" }, status: 204
+			render json: Api::BirthdaySerializer.new(@birthday)
 		rescue => e
 			p "***birthdays#destroy***"
 			p e.message
@@ -48,6 +46,6 @@ class Api::BirthdaysController < ApplicationController
 
 	private
 	def birthday_params
-		params.require(:birthday).permit(:first_name, :last_name, :birthdate)
+		params.require(:birthday).permit(:name, :birthdate)
 	end
 end

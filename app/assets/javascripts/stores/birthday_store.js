@@ -25,9 +25,25 @@
       _birthdays.push(newBirthday);
     },
 
+    returnBirthdayIndex: function(birthday) {
+      for(var i = 0; i < _birthdays.length; i++){
+        if (_birthdays[i].id === birthday.id){
+          break;
+        }
+      }
+      return i;
+    },
+
+    deleteBirthday: function (birthday) {
+      _birthdays.splice(this.returnBirthdayIndex(birthday),1);
+    },
+
+    updateBirthday: function (birthday) {
+      _birthdays[this.returnBirthdayIndex(birthday)] = birthday;
+    },
+
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
-
         case BirthdayConstants.RECEIVE_BIRTHDAYS:
           _birthdays = payload.birthdays;
           BirthdayStore.changed();
@@ -35,8 +51,15 @@
         case BirthdayConstants.RECEIVE_BIRTHDAY:
           BirthdayStore.addNewBirthday(payload.newBirthday.birthday);
           BirthdayStore.changed();
-        break;
-
+          break;
+        case BirthdayConstants.UPDATE_BIRTHDAY:
+          BirthdayStore.updateBirthday(payload.updatedBirthday.birthday);
+          BirthdayStore.changed();
+          break;
+        case BirthdayConstants.DELETE_BIRTHDAY:
+          BirthdayStore.deleteBirthday(payload.deletedBirthday.birthday);
+          BirthdayStore.changed();
+          break;
       }
     })
 
