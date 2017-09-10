@@ -1,5 +1,5 @@
 (function(root) {
-  root.Links = React.createClass({
+    root.LinksIndex = React.createClass({
 
     getInitialState: function () {
       return ({ links: LinkStore.links()});
@@ -31,34 +31,39 @@
       link_form = <LinksForm />;
     }
     if (this.state.links[0] !== undefined) {
+      // Refactor this out into own function
       rezepte_links = [];
       sprache_links = [];
       andere_links = [];
       for (var i = 0; i < this.state.links.length; i++){
-        if (this.state.links[i].link_type === "sprache") {
-            sprache_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
-        } else if (this.state.links[i].link_type === "rezepte") {
-            rezepte_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
+        var link = this.state.links[i];
+
+        if (link.link_type === "sprache") {
+            sprache_links.push(<LinkItem link={link} url={link.url} alias={link.alias} id={link.id} updateLink={this.updateLink}/>);
+        } else if (link.link_type === "rezepte") {
+            rezepte_links.push(<LinkItem link={link} url={link.url} alias={link.alias} id={link.id} updateLink={this.updateLink}/>);
         } else {
-            andere_links.push(<li><a href={this.state.links[i].url}>{this.state.links[i].alias}</a></li>);
+            andere_links.push(<LinkItem link={link} url={link.url} alias={link.alias} id={link.id} updateLink={this.updateLink}/>);
         }
       }
     }
 		return (
-			<div>
-        <ul className="rezepte_links">
-          Rezepte
-          {rezepte_links}
-        </ul>
-        <ul className="sprache_links">
-          Sprache
-          {sprache_links}
-        </ul>
-        <ul className="andere_links">
-          Andere
-          {andere_links}
-        </ul>
-        {link_form}
+			<div id="links_index">
+        <div className="link-container">
+          <ul className="rezepte_links">
+            <h2>Rezepte</h2>
+            {rezepte_links}
+          </ul>
+          <ul className="sprache_links">
+            <h2>Sprache</h2>
+            {sprache_links}
+          </ul>
+          <ul className="andere_links">
+            <h2>Andere</h2>
+            {andere_links}
+          </ul>
+        </div>
+        {CurrentUserStore.isLoggedIn() && link_form}
 			</div>
 		);
 	}

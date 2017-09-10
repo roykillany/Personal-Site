@@ -1,0 +1,32 @@
+@import "base/colors";
+
+.link-item {
+  position: relative;
+  width: 200px;
+
+  .fa-pencil-square-o, .fa-check-square-o, .fa-times {
+    position: absolute;
+    top: 0;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+      color: $base-color;
+    }
+  }
+
+  .fa-pencil-square-o, .fa-check-square-o {
+    right: 0;
+  }
+
+  .fa-times {
+    right: 25px;
+    top: -1px;
+  }
+
+  a {
+    height: 50px;
+    width: 50px;
+  }
+}

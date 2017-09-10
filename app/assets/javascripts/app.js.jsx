@@ -10,7 +10,7 @@ window.startUp = {
         <Route path="/" component={ Header }>
           <IndexRoute component={ Index }/>
           <Route path="admin" component={ AdminForm }/>
-          <Route path="links" component={ Links }/>
+          <Route path="links" component={ LinksIndex }/>
           <Route path="fotos" component={ Photos }/>
           <Route path="gaestebuch" component={ Guestbook }/>
           <Route path="geburtstage" component={ Birthdays } onEnter={requireAuth}/>

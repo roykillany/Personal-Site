@@ -25,6 +25,14 @@
       _links.push(newLink);
     },
 
+    updateLink: function (link) {
+      var idx = _links.map(function(el) {
+        return el.id;
+      }).indexOf(link.id);
+
+      _links[idx] = link;
+    },
+
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
 
@@ -32,8 +40,12 @@
           _links = payload.links;
           LinkStore.changed();
           break;
-        case LinkConstants.RECEIVE_LINK:
+        case LinkConstants.RECEIVE_NEW_LINK:
           LinkStore.addNewLink(payload.newLink.link);
+          LinkStore.changed();
+          break;
+        case LinkConstants.RECEIVE_UPDATED_LINK:
+          LinkStore.updateLink(payload.link.link);
           LinkStore.changed();
         break;
 

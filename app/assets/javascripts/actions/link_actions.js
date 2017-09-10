@@ -9,10 +9,15 @@ var LinkActions = {
 
   receiveNewLink: function (link) {
     AppDispatcher.dispatch({
-      actionType: LinkConstants.RECEIVE_LINK,
+      actionType: LinkConstants.RECEIVE_NEW_LINK,
       newLink: link
     });
   },
 
-
+  receiveUpdatedLink: function (link) {
+    AppDispatcher.dispatch({
+      actionType: LinkConstants.RECEIVE_UPDATED_LINK,
+      link: link
+    });
+  }
 };
