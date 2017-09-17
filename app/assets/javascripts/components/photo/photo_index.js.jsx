@@ -11,7 +11,7 @@
 
     componentWillUnmount: function () {
       PhotoStore.removeChangeHandler(this._onPhotoChange);
-      this.dropzone.disable();
+      this.dropzone && this.dropzone.disable();
     },
 
     _onPhotoChange: function () {
@@ -46,7 +46,7 @@
   		return (
   			<div>
           Photos
-          {CurrentUserStore.isLoggedIn() ? <div id="photo-dropzone">
+          {CurrentUserStore.isLoggedIn() ? <div id="photo_dropzone">
             <form action="/api/photos" className="dropzone" id="my-awesome-dropzone" ref={this.mountDropZone}></form>
           </div> : null}
           <div>
@@ -58,7 +58,7 @@
                     photo={el}
                     removePhoto={_this.removePhoto}
                   />
-                )
+                );
               })}
             </ul>
           </div>

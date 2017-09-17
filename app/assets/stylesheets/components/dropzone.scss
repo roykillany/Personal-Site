@@ -1,6 +1,6 @@
 @import "base/colors";
 
-#photo-dropzone {
+#photo_dropzone, #recipe_dropzone {
   .dropzone {
     border: 2px dashed $base-color;
     border-radius: 5px;

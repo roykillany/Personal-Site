@@ -68,7 +68,7 @@
     render: function() {
       return (
         <li className="link-item" key={"link" + this.props.id}>
-          <a href={this.state.url}>
+          <a href={this.state.url} target="_blank">
             {this.state.alias}
           </a>
           {CurrentUserStore.isLoggedIn() && this.renderEditButtons()}

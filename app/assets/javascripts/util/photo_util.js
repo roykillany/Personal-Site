@@ -31,6 +31,6 @@ var PhotoUtil = window.PhotoUtil = {
       success: function(data) {
         PhotoActions.removePhoto(data.id);
       }
-    })
+    });
   }
 };

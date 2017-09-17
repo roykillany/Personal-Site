@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911213402) do
+ActiveRecord::Schema.define(version: 20170910125545) do
 
   create_table "birthdays", force: :cascade do |t|
     t.string   "name",       null: false
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20160911213402) do
   end
 
   add_index "posts", ["email"], name: "index_posts_on_email"
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.string   "details"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
