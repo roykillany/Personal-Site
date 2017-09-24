@@ -17,7 +17,7 @@
       return (
         <form onSubmit={ this.submit }>
 
-          <h1>Logn In!</h1>
+          <h1>Login!</h1>
 
           <label>
             Email
@@ -29,7 +29,7 @@
             <input type="password" name="password" />
           </label>
 
-          <button>Log In!</button>
+          <button className="button">Login!</button>
         </form>
       );
     },

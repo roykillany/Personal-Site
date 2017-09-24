@@ -12,7 +12,8 @@
           <div>
             Logged in as
             { this.props.currentUser.username }
-            <button onClick={ this.logout }>LOG OUT</button>
+            <br/>
+            <button className="button" onClick={ this.logout }>LOG OUT</button>
           </div>
         );
       } else {
