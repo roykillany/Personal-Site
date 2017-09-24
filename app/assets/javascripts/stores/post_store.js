@@ -25,6 +25,18 @@
       _posts.push(newPost);
     },
 
+    removePost: function (id) {
+      var idx;
+
+      for(var i = 0; i < _posts.length; i++) {
+        if(_posts[i].id === id) {
+          idx = 1;
+        }
+      }
+
+      _posts.splice(idx, 1);
+    },
+
     dispatcherId: AppDispatcher.register(function (payload) {
       switch (payload.actionType) {
 
@@ -35,8 +47,11 @@
         case PostConstants.RECEIVE_POST:
           PostStore.addNewPost(payload.newPost.post);
           PostStore.changed();
-        break;
-
+          break;
+        case PostConstants.REMOVE_POST:
+          PostStore.removePost(payload.postId);
+          PostStore.changed();
+          break;
       }
     })
 

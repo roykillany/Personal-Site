@@ -24,15 +24,16 @@
   			<div>
           <div>Guestbook</div>
           <GuestbookForm />
-          {this.state.posts.map(function(p) {
-            return (
-              <div>
-                <div>{p.name}</div>
-                <div>{p.email}</div>
-                <div>{p.comment}</div>
-              </div>
-            );
-          })}
+          <ul id="post_container">
+            {this.state.posts.map(function(p, idx) {
+              return (
+                <GuestbookItem
+                  key={idx}
+                  post={p}
+                />
+              );
+            })}
+          </ul>
   			</div>
   		);
   	}

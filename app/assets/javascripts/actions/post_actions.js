@@ -13,4 +13,11 @@ var PostActions = {
       newPost: post
     });
   },
+
+  removePost: function (id) {
+    AppDispatcher.dispatch({
+      actionType: PostConstants.REMOVE_POST,
+      postId: id
+    });
+  }
 };

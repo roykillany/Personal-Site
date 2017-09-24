@@ -10,9 +10,37 @@
       });
     },
 
+    notRobot: false,
+
+    componentDidMount: function () {
+     grecaptcha.render(this.refs.recaptchaTarget.getDOMNode(), {
+       sitekey: '6LcbxSUTAAAAAF1Mvudia38WzgIHhV7Ytw6Ek3fd',
+       class: 'g-recaptcha',
+       callback: this.enableBtn,
+       "expired-callback": this.disableBtn,
+       lang: "de"
+     });
+    },
+
+    enableBtn: function () {
+      $(".link-submit").removeClass("disabled");
+      this.notRobot = true;
+    },
+
+    disableBtn: function () {
+      $(".link-submit").addClass("disabled");
+      this.notRobot = false;
+    },
+
     handleSubmit: function (e) {
       e.preventDefault();
-      PostUtil.createPost({post: this.state});
+      if (this.notRobot) {
+        PostUtil.createPost({post: this.state});
+      } else {
+        // disable message sayig to verify that they are not a bot
+      }
+      this.disableBtn();
+      grecaptcha.reset();
     },
 
     render: function() {
@@ -36,9 +64,11 @@
             </label>
           </div>
 
-          <button className="link-submit">Speicher</button>
+          <div ref="recaptchaTarget"></div>
+
+          <button className="link-submit button disabled">Speicher</button>
         </form>
-      )
+      );
     }
   });
 })(this);

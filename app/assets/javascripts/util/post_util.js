@@ -23,4 +23,14 @@ var PostUtil = window.PostUtil = {
     });
   },
 
+  removePost: function(id) {
+    $.ajax({
+      url: '/api/posts/' + id,
+      type: 'DELETE',
+      dataType: 'json',
+      success: function(_data) {
+        PostActions.removePost(id);
+      }
+    });
+  }
 };
