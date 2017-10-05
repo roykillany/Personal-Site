@@ -29,7 +29,7 @@
 
     render: function() {
   		return (
-  			<Row>
+  			<Row className="padding-bottom-50">
           <Column size="6">
             <form onSubmit={this.handleSubmit}>
 

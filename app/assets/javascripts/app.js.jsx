@@ -7,7 +7,7 @@ window.startUp = {
 
     React.render(
       <Router>
-        <Route path="/" component={ Header }>
+        <Route path="/" component={ App }>
           <IndexRoute component={ Index }/>
           <Route path="admin" component={ AdminForm }/>
           <Route path="links" component={ LinksIndex }/>

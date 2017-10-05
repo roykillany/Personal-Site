@@ -48,23 +48,25 @@
       }
     }
 		return (
-			<div id="links_index">
-        <div className="link-container">
-          <ul className="rezepte_links">
-            <h2>Rezepte</h2>
-            {rezepte_links}
-          </ul>
-          <ul className="sprache_links">
-            <h2>Sprache</h2>
-            {sprache_links}
-          </ul>
-          <ul className="andere_links">
-            <h2>Andere</h2>
-            {andere_links}
-          </ul>
-        </div>
-        {CurrentUserStore.isLoggedIn() && link_form}
-			</div>
+			<Row className="main-container">
+        <Column size="12">
+          <div className="link-container">
+            <ul className="rezepte_links">
+              <h3>Rezepte</h3>
+              {rezepte_links}
+            </ul>
+            <ul className="sprache_links">
+              <h3>Sprache</h3>
+              {sprache_links}
+            </ul>
+            <ul className="andere_links">
+              <h3>Andere</h3>
+              {andere_links}
+            </ul>
+          </div>
+          {CurrentUserStore.isLoggedIn() && link_form}
+        </Column>
+			</Row>
 		);
 	}
 });

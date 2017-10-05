@@ -44,25 +44,27 @@
       var _this = this;
 
   		return (
-  			<div>
-          Photos
-          {CurrentUserStore.isLoggedIn() ? <div id="photo_dropzone">
-            <form action="/api/photos" className="dropzone" id="my-awesome-dropzone" ref={this.mountDropZone}></form>
-          </div> : null}
-          <div>
-            <ul>
-              {this.state.photos.map(function(el, idx) {
-                return (
-                  <PhotoItem
-                    key={idx}
-                    photo={el}
-                    removePhoto={_this.removePhoto}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-  			</div>
+  			<Row className="main-container">
+          <Column size="12">
+            <h3>Fotos</h3>
+            {CurrentUserStore.isLoggedIn() ? <div id="photo_dropzone">
+              <form action="/api/photos" className="dropzone" id="my-awesome-dropzone" ref={this.mountDropZone}></form>
+            </div> : null}
+            <div>
+              <ul>
+                {this.state.photos.map(function(el, idx) {
+                  return (
+                    <PhotoItem
+                      key={idx}
+                      photo={el}
+                      removePhoto={_this.removePhoto}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </Column>
+  			</Row>
   		);
   	}
   });

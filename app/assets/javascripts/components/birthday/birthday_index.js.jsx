@@ -95,9 +95,9 @@
 
   render: function() {
 		return (
-			<Row>
+			<Row className="main-container">
         <Column size="12">
-          <h2>Geburtstag hinzufuegen</h2>
+          <h3>Geburtstag hinzufuegen</h3>
           <BirthdaysForm />
           <Row>
             <div id="calendar"></div>

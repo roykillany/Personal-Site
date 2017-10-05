@@ -1,8 +1,24 @@
+@import 'base/colors';
+
 .header {
+  position: fixed;
+
+  width: 100%;
+  padding: 10px;
+  opacity: 0.5;
+  height: 45px;
+  background-color: pink;
+
   .header-list {
     display: flex;
 
+    width: 600px;
     margin-left: 10px;
     justify-content: space-between;
+
+    li:hover {
+      text-decoration: underline;
+      text-decoration-color: $base-color-dark;
+    }
   }
 }

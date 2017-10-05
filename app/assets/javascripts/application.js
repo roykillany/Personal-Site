@@ -23,6 +23,8 @@
 //= require foundation
 //= require eventemitter
 //= require react_router
+//= require classnames
+//= require lodash
 //= require components
 //= require_tree .
 

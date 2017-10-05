@@ -2,8 +2,13 @@
   root.Row = React.createClass({
 
   render: function() {
+    var classes = classNames(
+      "row",
+      this.props.className
+    );
+
 		return (
-			<div className="row">
+			<div className={classes}>
         {this.props.children}
 			</div>
 		);
