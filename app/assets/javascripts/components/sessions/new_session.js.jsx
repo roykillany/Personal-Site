@@ -17,7 +17,7 @@
       return (
         <form onSubmit={ this.submit }>
 
-          <h1>Login!</h1>
+          <h3>Login!</h3>
 
           <label>
             Email

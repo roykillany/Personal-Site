@@ -9,18 +9,21 @@
 
       if (CurrentUserStore.isLoggedIn()) {
         return (
-          <div>
-            Logged in as
-            { this.props.currentUser.username }
-            <br/>
-            <button className="button" onClick={ this.logout }>LOG OUT</button>
-          </div>
+          <Row className="main-container">
+            <Column size="12">
+              <h4>Logged in as { this.props.currentUser.username }</h4>
+              <br/>
+              <button className="button" onClick={ this.logout }>LOG OUT</button>
+            </Column>
+          </Row>
         );
       } else {
         return (
-          <div>
-            <SessionForm />
-          </div>
+          <Row className="main-container">
+            <Column size="6">
+              <SessionForm />
+            </Column>
+          </Row>
         );
       }
     },
