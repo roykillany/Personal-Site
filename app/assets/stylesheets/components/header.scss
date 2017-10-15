@@ -2,12 +2,11 @@
 
 .header {
   position: fixed;
-
   width: 100%;
   padding: 10px;
-  opacity: 0.5;
   height: 45px;
-  background-color: pink;
+  background-color: $base-color-pink-light;
+  z-index: 999;
 
   .header-list {
     display: flex;
@@ -18,7 +17,11 @@
 
     li:hover {
       text-decoration: underline;
-      text-decoration-color: $base-color-dark;
+      text-decoration-color: $base-color-pink-dark;
+    }
+
+    a {
+      color: #fefefe;
     }
   }
 }
