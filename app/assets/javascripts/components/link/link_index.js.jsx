@@ -50,21 +50,23 @@
 		return (
 			<Row className="main-container">
         <Column size="12">
-          <div className="link-container">
-            <ul className="rezepte_links">
+          <Row className="link-container padding-bottom-50">
+            <Column size="4" className="rezepte_links">
               <h3>Rezepte</h3>
               {rezepte_links}
-            </ul>
-            <ul className="sprache_links">
+            </Column>
+            <Column size="4" className="sprache_links">
               <h3>Sprache</h3>
               {sprache_links}
-            </ul>
-            <ul className="andere_links">
+            </Column>
+            <Column size="4" className="andere_links">
               <h3>Andere</h3>
               {andere_links}
-            </ul>
-          </div>
-          {CurrentUserStore.isLoggedIn() && link_form}
+            </Column>
+          </Row>
+          <Row>
+            {CurrentUserStore.isLoggedIn() && link_form}
+          </Row>
         </Column>
 			</Row>
 		);

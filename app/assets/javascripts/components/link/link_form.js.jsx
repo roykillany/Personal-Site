@@ -18,7 +18,7 @@
 
     render: function() {
   		return (
-  			<div>
+  			<Column size="6">
           <form onSubmit={this.handleSubmit}>
 
             <div>
@@ -45,7 +45,7 @@
 
             <button className="link-submit button">Speicher</button>
           </form>
-  			</div>
+  			</Column>
   		);
   	}
   });
