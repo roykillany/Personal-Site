@@ -10,9 +10,19 @@
       if (CurrentUserStore.isLoggedIn()) {
         return (
           <Row className="main-container">
-            <Column size="12">
+            <Column size="6">
               <h4>Logged in as { this.props.currentUser.username }</h4>
-              <br/>
+              <img src="<%= asset_path('two_people_photo.jpg') %>"></img>
+
+              <p>
+                YOU ARE WELCOME, we mean... Let us know if you find anything you dont like :)
+                If you are missing something, hopefully we can program it.
+                <br/>
+                Cheers,
+                <br/>
+                Your Personal programmers
+              </p>
+
               <button className="button" onClick={ this.logout }>LOG OUT</button>
             </Column>
           </Row>

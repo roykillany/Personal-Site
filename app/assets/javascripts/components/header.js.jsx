@@ -12,7 +12,6 @@
               <li><a href="#/fotos">Fotos</a></li>
               {this.props.isLoggedIn ? <li><a href="#/geburtstage">Geburtstage</a></li> : <div></div>}
             </ul>
-    				<img />
     			</div>
         </div>
   		);

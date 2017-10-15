@@ -66,6 +66,8 @@
 
           <div ref="recaptchaTarget"></div>
 
+          <br/>
+
           <button className="link-submit button disabled">Speicher</button>
         </form>
       );
