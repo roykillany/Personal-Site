@@ -47,23 +47,30 @@
           <div className="birthday_modal--content">
             <Row>
               <Column size="12">
-                <a onClick={this.props.closeModalCallback}>X</a>
-                <Row>
-                  <h4>Bearbeite {this.props.birthday_data.name}s Geburtstag</h4>
-                  <label>Name
-                    <input type="text" className="birthday_name" valueLink={this.linkState('name')}/>
-                  </label>
-                  <label>Geburtstag
-                    <input type="text" className="modal_birthdate" valueLink={this.linkState('birthdate')}/>
-                  </label>
+                <Row className="padding-bottom-50">
+                  <Column size="12">
+                    <h4>Bearbeite {this.props.birthday_data.name}'s Geburtstag</h4>
+                    <label>Name
+                      <input type="text" className="birthday_name" valueLink={this.linkState('name')}/>
+                    </label>
+                    <label>Geburtstag
+                      <input type="text" className="modal_birthdate" valueLink={this.linkState('birthdate')}/>
+                    </label>
+                  </Column>
                 </Row>
                 <Row>
                   <Column size="6">
                     <span className="button" onClick={this.updateBirthday}>Aktualisieren</span>
                   </Column>
                   <Column size="6">
-                    <span className="button secondary" onClick={this.props.closeModalCallback}>Cancel</span>
-                    <span className="button alert" onClick={this.deleteBirthday}>Loeschen</span>
+                    <Row>
+                      <Column size="6">
+                        <span className="button secondary" onClick={this.props.closeModalCallback}>Cancel</span>
+                      </Column>
+                      <Column size="6">
+                        <span className="button alert" onClick={this.deleteBirthday}>Loeschen</span>
+                      </Column>
+                    </Row>
                   </Column>
                 </Row>
               </Column>

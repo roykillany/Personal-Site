@@ -46,25 +46,27 @@
       var _this = this;
 
   		return (
-  			<div>
-          Recipes
-          {CurrentUserStore.isLoggedIn() ? <div id="recipe_dropzone">
-            <form action="/api/recipes" className="dropzone" id="my-awesome-dropzone" ref={this.mountDropZone}></form>
-          </div> : null}
-          <div>
-            <ul>
-              {this.state.recipes.map(function(el, idx) {
-                return (
-                  <RecipeItem
-                    key={idx}
-                    recipe={el}
-                    removeRecipe={_this.removeRecipe}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-  			</div>
+  			<Row className="main-container">
+          <Column size="12">
+            <h3>Recipes</h3>
+            {CurrentUserStore.isLoggedIn() ? <div id="recipe_dropzone">
+              <form action="/api/recipes" className="dropzone" id="my-awesome-dropzone" ref={this.mountDropZone}></form>
+            </div> : null}
+            <div>
+              <ul>
+                {this.state.recipes.map(function(el, idx) {
+                  return (
+                    <RecipeItem
+                      key={idx}
+                      recipe={el}
+                      removeRecipe={_this.removeRecipe}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </Column>
+  			</Row>
   		);
   	}
   });
