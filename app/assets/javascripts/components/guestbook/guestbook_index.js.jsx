@@ -21,20 +21,30 @@
 
     render: function() {
   		return (
-  			<div>
-          <div>Guestbook</div>
-          <GuestbookForm />
-          <ul id="post_container">
-            {this.state.posts.map(function(p, idx) {
-              return (
-                <GuestbookItem
-                  key={idx}
-                  post={p}
-                />
-              );
-            })}
-          </ul>
-  			</div>
+  			<Row className="main-container">
+          <Column size="12">
+            <Row>
+              <Column size="6">
+                <h4>Guestbook</h4>
+                <GuestbookForm />
+              </Column>
+            </Row>
+            <Row>
+              <Column size="12">
+                <ul id="post_container">
+                  {this.state.posts.map(function(p, idx) {
+                    return (
+                      <GuestbookItem
+                        key={idx}
+                        post={p}
+                      />
+                    );
+                  })}
+                </ul>
+              </Column>
+            </Row>
+          </Column>
+  			</Row>
   		);
   	}
   });
