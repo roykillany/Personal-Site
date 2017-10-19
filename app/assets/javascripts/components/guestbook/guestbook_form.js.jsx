@@ -68,7 +68,7 @@
 
           <br/>
 
-          <button className="link-submit button disabled">Speicher</button>
+          <button className="link-submit button disabled">Speichern</button>
         </form>
       );
     }

@@ -45,7 +45,7 @@
                 </label>
               </div>
 
-              <button className="button">Speicher</button>
+              <button className="button">Speichern</button>
             </form>
           </Column>
   			</Row>

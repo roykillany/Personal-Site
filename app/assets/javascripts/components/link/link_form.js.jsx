@@ -43,7 +43,7 @@
               </label>
             </div>
 
-            <button className="link-submit button">Speicher</button>
+            <button className="link-submit button">Speichern</button>
           </form>
   			</Column>
   		);
