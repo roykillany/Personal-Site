@@ -5,18 +5,18 @@
   background-repeat: no-repeat;
 
   &:first-child {
-    background-image: url(asset-path('cat_1-jpg.jpg'));
+    background-image: url(asset-path('blume-1.jpg'));
   }
 
   &:nth-child(2) {
-    background-image: url(asset-path('cat_2-jpg.jpg'));
+    background-image: url(asset-path('blume-2.jpg'));
   }
 
   &:nth-child(3) {
-    background-image: url(asset-path('cat_3-jpg.jpg'));
+    background-image: url(asset-path('blume-3.jpg'));
   }
 
   &:nth-child(4) {
-    background-image: url(asset-path('cat_4-jpg.jpg'));
+    background-image: url(asset-path('blume-4.jpg'));
   }
 }
