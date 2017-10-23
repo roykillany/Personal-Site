@@ -9,9 +9,23 @@
       PhotoUtil.fetchPhotos();
     },
 
+    componentDidUpdate: function() {
+      var _this = this;
+      if(!this.masonry) {
+        window.setTimeout(function() {
+          _this.masonry = new Masonry('.grid', {
+            itemSelector: '.grid-item',
+            columnWidth: 120
+          });
+        }, 50);
+      }
+    },
+
     componentWillUnmount: function () {
       PhotoStore.removeChangeHandler(this._onPhotoChange);
       this.dropzone && this.dropzone.disable();
+
+      this.masonry.destroy();
     },
 
     _onPhotoChange: function () {
@@ -56,7 +70,7 @@
             </Row>
             <Row>
               <Column size="12">
-                <ul>
+                <ul className="grid">
                   {this.state.photos.map(function(el, idx) {
                     return (
                       <PhotoItem

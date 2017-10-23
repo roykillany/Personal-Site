@@ -18,9 +18,9 @@
       var name = "fa fa-times" + (this.state.hovered ? "" : " hidden");
 
       return (
-        <li key={this.props.key} style={{width: '100px', position: 'relative'}} onMouseLeave={this.toggleHovered} onMouseEnter={this.toggleHovered}>
+        <li className="grid-item padding-bottom-50" key={this.props.key} style={{width: '300px', position: 'relative'}} onMouseLeave={this.toggleHovered} onMouseEnter={this.toggleHovered}>
           {CurrentUserStore.isLoggedIn() ? <i className={name} data-id={this.props.photo.id} style={{color: 'white', position: 'absolute', right: '0', padding: '2px 4px', cursor: 'pointer'}} onClick={this.props.removePhoto}></i> : null}
-          <img src={this.props.photo.image} style={{width: '100px'}}/>
+          <img src={this.props.photo.image} style={{width: '300px'}}/>
         </li>
       );
     }
