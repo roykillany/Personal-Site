@@ -16,7 +16,8 @@
 
       this.masonry = new Masonry('.grid', {
         itemSelector: '.grid-item',
-        columnWidth: 50,
+        gutter: 20,
+        columnWidth: 376,
         horizontalOrder: true,
         fitWidth: true
       });
