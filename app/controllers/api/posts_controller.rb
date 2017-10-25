@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		@posts = Post.all.order(created_at: :desc)
 		render json: ActiveModel::ArraySerializer.new(@posts, { each_serializer: Api::PostSerializer })
 	end
 
@@ -33,6 +33,6 @@ class Api::PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:name, :email, :comment)
+		params.require(:post).permit(:name, :comment)
 	end
 end

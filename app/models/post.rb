@@ -1,3 +1,3 @@
 class Post < ActiveRecord::Base
-	validates :name, :email, :comment, presence: true
+	validates :name, :comment, presence: true
 end

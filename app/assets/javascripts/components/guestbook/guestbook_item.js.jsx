@@ -21,11 +21,13 @@
       var name = "fa fa-times" + (this.state.hovered ? "" : " hidden");
 
       return (
-        <li key={this.props.key} style={{width: '100px', position: 'relative'}} onMouseLeave={this.toggleHovered} onMouseEnter={this.toggleHovered}>
+        <li className='grid-item guestbook-item padding-bottom-50' key={this.props.key} onMouseLeave={this.toggleHovered} onMouseEnter={this.toggleHovered}>
           {CurrentUserStore.isLoggedIn() ? <i className={name} data-id={this.props.post.id} style={{color: 'black', position: 'absolute', right: '0', padding: '2px 4px', cursor: 'pointer'}} onClick={this.removePost}></i> : null}
-          <div>{this.props.post.name}</div>
-          <div>{this.props.post.email}</div>
-          <div>{this.props.post.comment}</div>
+          <div className='item-header'>
+            <div className='name'>{this.props.post.name}</div>
+            <div className='timestamp'>{this.props.post.created_at}</div>
+          </div>
+          <div className='item-body'>{this.props.post.comment}</div>
         </li>
       );
     }

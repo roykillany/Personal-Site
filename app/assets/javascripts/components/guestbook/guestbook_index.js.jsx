@@ -1,7 +1,9 @@
 (function(root) {
   root.Guestbook = React.createClass({
     getInitialState: function() {
-      return ({ posts: PostStore.posts() });
+      return ({
+        posts: PostStore.posts(),
+      });
     },
 
     componentDidMount: function () {
@@ -9,8 +11,20 @@
       PostUtil.fetchPosts();
     },
 
+    componentDidUpdate: function() {
+      this.masonry && this.masonry.destroy();
+
+      this.masonry = new Masonry('.grid', {
+        itemSelector: '.grid-item',
+        columnWidth: 50,
+        horizontalOrder: true,
+        fitWidth: true
+      });
+    },
+
     componentWillUnmount: function () {
       PostStore.removeChangeHandler(this._onPostChange);
+      this.masonry.destroy();
     },
 
     _onPostChange: function () {
@@ -31,7 +45,7 @@
             </Row>
             <Row>
               <Column size="12">
-                <ul id="post_container">
+                <ul id="post_container" className="grid">
                   {this.state.posts.map(function(p, idx) {
                     return (
                       <GuestbookItem

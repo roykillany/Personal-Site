@@ -5,7 +5,6 @@
     getInitialState: function () {
       return ({
         name: '',
-        email: '',
         comment: ''
       });
     },
@@ -13,13 +12,13 @@
     notRobot: false,
 
     componentDidMount: function () {
-     grecaptcha.render(this.refs.recaptchaTarget.getDOMNode(), {
-       sitekey: '6LcbxSUTAAAAAF1Mvudia38WzgIHhV7Ytw6Ek3fd',
-       class: 'g-recaptcha',
-       callback: this.enableBtn,
-       "expired-callback": this.disableBtn,
-       lang: "de"
-     });
+       grecaptcha.render(this.refs.recaptchaTarget.getDOMNode(), {
+         sitekey: '6LcbxSUTAAAAAF1Mvudia38WzgIHhV7Ytw6Ek3fd',
+         class: 'g-recaptcha',
+         callback: this.enableBtn,
+         "expired-callback": this.disableBtn,
+         lang: "de"
+       });
     },
 
     enableBtn: function () {
@@ -49,12 +48,6 @@
           <div>
             <label>Name
               <input type="text" className="url" name="post[name]" valueLink={this.linkState('name')}/>
-            </label>
-          </div>
-
-          <div>
-            <label>Email
-              <input type="text" className="alias" maxLength="40" name="post[email]" valueLink={this.linkState('email')}/>
             </label>
           </div>
 

@@ -1,7 +1,7 @@
 class Api::PostSerializer < ActiveModel::Serializer
-	attributes :id, :full_name, :email, :comment
+	attributes :id, :name, :comment, :created_at
 
-	def full_name
-		"#{object.name}"
+	def created_at
+		object.created_at.strftime('%F %T')
 	end
 end

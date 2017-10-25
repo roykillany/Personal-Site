@@ -22,7 +22,7 @@
     },
 
     addNewPost: function (newPost) {
-      _posts.push(newPost);
+      _posts.unshift(newPost);
     },
 
     removePost: function (id) {

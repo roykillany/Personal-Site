@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910125545) do
+ActiveRecord::Schema.define(version: 20171025083956) do
 
   create_table "birthdays", force: :cascade do |t|
     t.string   "name",       null: false
@@ -42,14 +42,11 @@ ActiveRecord::Schema.define(version: 20170910125545) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "email",      null: false
     t.string   "comment",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
   end
-
-  add_index "posts", ["email"], name: "index_posts_on_email"
 
   create_table "recipes", force: :cascade do |t|
     t.string   "pdf_file_name"
