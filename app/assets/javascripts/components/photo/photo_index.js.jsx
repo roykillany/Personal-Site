@@ -11,14 +11,17 @@
 
     componentDidUpdate: function() {
       var _this = this;
-      if(!this.masonry) {
-        window.setTimeout(function() {
-          _this.masonry = new Masonry('.grid', {
-            itemSelector: '.grid-item',
-            columnWidth: 120
-          });
-        }, 50);
-      }
+      this.masonry && this.masonry.destroy();
+
+      window.setTimeout(function() {
+        _this.masonry = new Masonry('.grid', {
+          itemSelector: '.grid-item',
+          gutter: 20,
+          columnWidth: 376,
+          horizontalOrder: true,
+          fitWidth: true
+        });
+      }, 150);
     },
 
     componentWillUnmount: function () {
@@ -70,7 +73,7 @@
             </Row>
             <Row>
               <Column size="12">
-                <ul className="grid">
+                <ul className="grid photo-grid">
                   {this.state.photos.map(function(el, idx) {
                     return (
                       <PhotoItem
