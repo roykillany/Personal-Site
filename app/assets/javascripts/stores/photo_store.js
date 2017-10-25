@@ -22,7 +22,7 @@
     },
 
     addNewPhoto: function (newPhoto) {
-      _photos.push(newPhoto);
+      _photos.unshift(newPhoto);
     },
 
     removePhoto: function (id) {

@@ -12,7 +12,7 @@ class Api::PhotosController < ApplicationController
 	end
 
 	def index
-		@photos = Photo.all
+		@photos = Photo.all.order(created_at: :desc)
 		render json: ActiveModel::ArraySerializer.new(@photos, { each_serializer: Api::PhotoSerializer })
 	end
 
