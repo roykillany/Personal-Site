@@ -19,6 +19,7 @@
 
     render: function() {
       var name = "fa fa-times" + (this.state.hovered ? "" : " hidden");
+      this.converter = new showdown.Converter();
 
       return (
         <li className='grid-item guestbook-item' key={this.props.key} onMouseLeave={this.toggleHovered} onMouseEnter={this.toggleHovered}>
@@ -27,7 +28,7 @@
             <div className='name'>{this.props.post.name}</div>
             <div className='timestamp'>{this.props.post.created_at}</div>
           </div>
-          <div className='item-body'>{this.props.post.comment}</div>
+          <div className='item-body' dangerouslySetInnerHTML={{ __html: this.converter.makeHtml(this.props.post.comment)}} />
         </li>
       );
     }
