@@ -3,7 +3,9 @@ window.startUp = {
   initialize: function () {
     var Router = ReactRouter.Router,
         Route = ReactRouter.Route,
-        IndexRoute = ReactRouter.IndexRoute;
+        IndexRoute = ReactRouter.IndexRoute,
+        history = History.createHashHistory();
+        // history = History.createBrowserHistory({forceRefresh: true});
 
     React.render(
       <Router>

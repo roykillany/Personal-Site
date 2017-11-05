@@ -25,8 +25,6 @@ var App = React.createClass({
         );
     }.bind(this));
 
-    console.log(CurrentUserStore.isLoggedIn());
-
     return (
       <div>
         <Header

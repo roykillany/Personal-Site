@@ -516,7 +516,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    tokens.push(pattern.slice(lastIndex, pattern.length));
 	    regexpSource += escapeSource(pattern.slice(lastIndex, pattern.length));
 	  }
-
+		console.log({
+	    pattern: pattern,
+	    regexpSource: regexpSource,
+	    paramNames: paramNames,
+	    tokens: tokens
+	  });
 	  return {
 	    pattern: pattern,
 	    regexpSource: regexpSource,
@@ -614,6 +619,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	function formatPattern(pattern, params) {
+		console.log("formatPattern");
 	  params = params || {};
 
 	  var _compilePattern3 = compilePattern(pattern);
@@ -707,6 +713,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function extractPath(string) {
 	  var match = string.match(/https?:\/\/[^\/]*/);
+		console.log("extractPath", string,  match);
 
 	  if (match == null) return string;
 
@@ -728,9 +735,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var hash = '';
 
 	  var hashIndex = pathname.indexOf('#');
+		console.log("hashIndex", hashIndex);
 	  if (hashIndex !== -1) {
 	    hash = pathname.substring(hashIndex);
 	    pathname = pathname.substring(0, hashIndex);
+			console.log("createLocation", hash, pathname);
 	  }
 
 	  var searchIndex = pathname.indexOf('?');
@@ -741,6 +750,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  if (pathname === '') pathname = '/';
 
+		console.log("hi", {
+	    pathname: pathname,
+	    search: search,
+	    hash: hash,
+	    state: state,
+	    action: action,
+	    key: key
+	  });
 	  return {
 	    pathname: pathname,
 	    search: search,
@@ -1248,11 +1265,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	function getHashPath() {
 	  // We can't use window.location.hash here because it's not
 	  // consistent across browsers - Firefox will pre-decode it!
-	  return window.location.href.split('#')[1] || '';
+	  // return window.location.href.split('#')[1] || '';
+		return window.location.pathname || '';
 	}
 
 	function replaceHashPath(path) {
-	  window.location.replace(window.location.pathname + window.location.search + '#' + path);
+	  // window.location.replace(window.location.pathname + window.location.search + '#' + path);
+		// window.location.replace(window.location.pathname + window.location.search + path);
+		console.log("replaceHashPath", path);
+		window.location.replace(path)
 	}
 
 	function getWindowPath() {
@@ -1375,7 +1396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  function updateLocation(newLocation) {
 	    var current = getCurrent();
-
+			console.log("updateLocation", location, newLocation)
 	    location = newLocation;
 
 	    if (location.action === _Actions.PUSH) {
@@ -1470,6 +1491,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      pendingLocation = null;
 
 	      if (ok) {
+					console.log("transitionTo", nextLocation);
 	        finishTransition(nextLocation);
 	        updateLocation(nextLocation);
 	      } else if (location && nextLocation.action === _Actions.POP) {
@@ -1482,14 +1504,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  function pushState(state, path) {
+			console.log("pushState", state, path);
 	    transitionTo(_createLocation2['default'](path, state, _Actions.PUSH, createKey()));
 	  }
 
 	  function replaceState(state, path) {
+			console.log("replaceState", state, path);
 	    transitionTo(_createLocation2['default'](path, state, _Actions.REPLACE, createKey()));
 	  }
 
 	  function setState(state) {
+			console.log("setState", state, location);
 	    if (location) {
 	      updateLocationState(location, state);
 	      updateLocation(location);
@@ -1624,6 +1649,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.decode = function (str) {
 
 	    try {
+					console.log("decode", decodeURIComponent(str.replace(/\+/g, ' ')));
 	        return decodeURIComponent(str.replace(/\+/g, ' '));
 	    } catch (e) {
 	        return str;
@@ -1678,6 +1704,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        out += internals.hexTable[0xF0 | (c >> 18)] + internals.hexTable[0x80 | ((c >> 12) & 0x3F)] + internals.hexTable[0x80 | ((c >> 6) & 0x3F)] + internals.hexTable[0x80 | (c & 0x3F)];
 	    }
 
+			console.log("encode", out);
 	    return out;
 	};
 
@@ -2095,7 +2122,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var params = nextState.params;
 
 	        var pathname = route.to ? _PatternUtils.formatPattern(route.to, params) : location.pathname;
-
+					console.log("createRouteFromReactElement", pathname, params, location);
 	        replaceState(route.state || location.state, pathname, route.query || location.query);
 	      };
 
@@ -2339,6 +2366,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      parseQueryString: parseQueryString,
 	      stringifyQuery: stringifyQuery
 	    });
+
+			console.log(this.history);
 
 	    this._unlisten = this.history.listen(function (error, state) {
 	      if (error) {
@@ -3009,6 +3038,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function addQueryStringValueToPath(path, key, value) {
+		console.log("addQueryStringValueToPath", path + (path.indexOf('?') === -1 ? '?' : '&') + (key + '=' + value))
 	  return path + (path.indexOf('?') === -1 ? '?' : '&') + (key + '=' + value);
 	}
 
@@ -3030,7 +3060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  var queryKey = options.queryKey;
 
-	  if (queryKey === undefined || !!queryKey) queryKey = typeof queryKey === 'string' ? queryKey : DefaultQueryKey;
+	  if (queryKey === undefined || !!queryKey) queryKey = typeof queryKey === 'string' ? queryKey : '';
 
 	  function getCurrentLocation() {
 	    var path = _DOMUtils.getHashPath();
@@ -3046,10 +3076,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else {
 	        state = null;
 	        key = history.createKey();
+					console.log("getCurrentLocation replace", key, path, queryKey);
 	        _DOMUtils.replaceHashPath(addQueryStringValueToPath(path, queryKey, key));
 	      }
 	    }
-
+			 console.log("getCurrentLocation", path, _createLocation2['default'](path, state, undefined, key));
 	    return _createLocation2['default'](path, state, undefined, key);
 	  }
 
@@ -3071,6 +3102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  function finishTransition(location) {
+			console.log("finishTransition");
 	    var pathname = location.pathname;
 	    var search = location.search;
 	    var state = location.state;
@@ -3097,6 +3129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        window.location.hash = path;
 	      } else {
 	        // REPLACE
+					console.log(path);
 	        _DOMUtils.replaceHashPath(path);
 	      }
 	    }
@@ -3144,7 +3177,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  function createHref(path) {
-	    return '#' + history.createHref(path);
+	    return history.createHref(path);
 	  }
 
 	  return _extends({}, history, {
@@ -3359,6 +3392,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return history.listen(function (location) {
 	        if (!location.query) location.query = parseQueryString(location.search.substring(1));
 
+					console.log("location", location);
 	        listener(location);
 	      });
 	    }
@@ -3375,6 +3409,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var queryString = undefined;
 	      if (query == null || (queryString = stringifyQuery(query)) === '') return pathname;
 
+				console.log(queryString);
 	      return history.createPath(pathname + (pathname.indexOf('?') === -1 ? '?' : '&') + queryString);
 	    }
 

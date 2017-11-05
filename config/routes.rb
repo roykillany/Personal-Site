@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :photos, only: [:show, :index, :create, :update, :destroy]
     resource :session, only: [:create, :destroy, :show]
   end
+
+  get '*path', to: 'static_pages#root'
 end
