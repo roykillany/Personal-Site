@@ -46,12 +46,34 @@
     },
 
     render: function() {
+      // TODO: extract paragraphs into own component
+
   		return (
-  			<div>
-          <Row className="index-block">Biography</Row>
-          <Row className="index-block">Photos</Row>
-          <Row className="index-block">Links</Row>
-          <Row className="index-block">Guestbook</Row>
+  			<div id="index">
+          <Row className="index-block">
+            <Column size="6" className="left">
+              <p>{faker.lorem.paragraphs(5)}</p>
+              <p>{faker.lorem.paragraphs(5)}</p>
+            </Column>
+          </Row>
+          <Row className="index-block">
+            <Column size="6" className="right">
+              <p>{faker.lorem.paragraphs(5)}</p>
+              <p>{faker.lorem.paragraphs(5)}</p>
+            </Column>
+          </Row>
+          <Row className="index-block left">
+            <Column size="6" className="left">
+              <p>{faker.lorem.paragraphs(5)}</p>
+              <p>{faker.lorem.paragraphs(5)}</p>
+            </Column>
+          </Row>
+          <Row className="index-block right">
+            <Column size="6" className="right">
+              <p>{faker.lorem.paragraphs(5)}</p>
+              <p>{faker.lorem.paragraphs(5)}</p>
+            </Column>
+          </Row>
         </div>
   		);
   	}

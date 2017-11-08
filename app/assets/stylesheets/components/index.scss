@@ -1,22 +1,26 @@
-.index-block {
-  height: 800px;
-  max-width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
+#index {
+  color: white;
+  
+  .index-block {
+    height: 800px;
+    max-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-  &:first-child {
-    background-image: url(asset-path('blume-1.jpg'));
-  }
+    &:first-child {
+      background-image: url(asset-path('blume-1.jpg'));
+    }
 
-  &:nth-child(2) {
-    background-image: url(asset-path('blume-2.jpg'));
-  }
+    &:nth-child(2) {
+      background-image: url(asset-path('blume-2.jpg'));
+    }
 
-  &:nth-child(3) {
-    background-image: url(asset-path('blume-3.jpg'));
-  }
+    &:nth-child(3) {
+      background-image: url(asset-path('blume-3.jpg'));
+    }
 
-  &:nth-child(4) {
-    background-image: url(asset-path('blume-4.jpg'));
+    &:nth-child(4) {
+      background-image: url(asset-path('blume-4.jpg'));
+    }
   }
 }
