@@ -14,6 +14,7 @@ window.startUp = {
           <Route path="fotos" component={ Photos }/>
           <Route path="gaestebuch" component={ Guestbook }/>
           <Route path="geburtstage" component={ Birthdays } onEnter={requireAuth}/>
+          <Route path="videos" component={ Videos } />
           <Route path="rezepte" component={ Recipes }/>
         </Route>
       </Router>,

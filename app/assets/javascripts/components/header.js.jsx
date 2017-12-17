@@ -10,6 +10,7 @@
               <li><a href="#/gaestebuch">Gaestebuch</a></li>
               <li><a href="#/links">Links</a></li>
               <li><a href="#/fotos">Fotos</a></li>
+              <li><a href="#/videos">Videos</a></li>
               {this.props.isLoggedIn ? <li><a href="#/geburtstage">Geburtstage</a></li> : <div></div>}
             </ul>
     			</div>
