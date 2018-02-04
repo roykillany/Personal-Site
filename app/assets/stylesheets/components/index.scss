@@ -9,18 +9,34 @@
 
     &:first-child {
       background-image: url(asset-path('blume-1.jpg'));
+
+      p {
+        font-size: 85px;
+      }
     }
 
     &:nth-child(2) {
       background-image: url(asset-path('blume-2.jpg'));
+
+      p {
+        font-size: 50px;
+      }
     }
 
     &:nth-child(3) {
       background-image: url(asset-path('blume-3.jpg'));
+
+      p {
+        font-size: 40px;
+      }
     }
 
     &:nth-child(4) {
       background-image: url(asset-path('blume-4.jpg'));
+
+      p {
+        font-size: 50px;
+      }
     }
   }
 }

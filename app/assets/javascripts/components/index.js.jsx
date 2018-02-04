@@ -51,27 +51,23 @@
   		return (
   			<div id="index">
           <Row className="index-block">
-            <Column size="6" className="left">
-              <p>{faker.lorem.paragraphs(5)}</p>
-              <p>{faker.lorem.paragraphs(5)}</p>
+            <Column size="8" className="left">
+              <p>Hi, you arrived at Gisela Goldsteins Webpage! Welcome :-)!</p>
             </Column>
           </Row>
           <Row className="index-block">
-            <Column size="6" className="right">
-              <p>{faker.lorem.paragraphs(5)}</p>
-              <p>{faker.lorem.paragraphs(5)}</p>
+            <Column size="8" className="right">
+              <p>Family,traveling and living life to its fullest means everything to me. Check out my <a href="#/fotos">photos here</a> to see my family, travels or other crazy stuff I found fascinating!</p>
             </Column>
           </Row>
           <Row className="index-block left">
-            <Column size="6" className="left">
-              <p>{faker.lorem.paragraphs(5)}</p>
-              <p>{faker.lorem.paragraphs(5)}</p>
+            <Column size="8" className="left">
+              <p>As you might know I love to cook, languages and many other things. Maybe check out my <a href="#/links">links</a> and see if you find anything interesting. As for cooking, I have a <a href="#/rezepte/">recipe site</a> where you can check out all of my famous delicous food. If you want to see me cook I also have some <a href="#/videos">videos here</a>! Enjoy ! :-)</p>
             </Column>
           </Row>
           <Row className="index-block right">
-            <Column size="6" className="right">
-              <p>{faker.lorem.paragraphs(5)}</p>
-              <p>{faker.lorem.paragraphs(5)}</p>
+            <Column size="8" className="right">
+              <p>You arrived at the bottom of my startpage! :-) Well if you checked out everything maybe leave a comment in my <a href="#/gaestebuch">guestbook</a>! I am looking forward to it!</p>
             </Column>
           </Row>
         </div>
