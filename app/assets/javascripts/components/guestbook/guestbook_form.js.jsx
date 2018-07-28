@@ -19,24 +19,6 @@
          "expired-callback": this.disableBtn,
          lang: "de"
        });
-
-       this.markdown_area = new SimpleMDE({
-         element: document.getElementById("comment-textarea"),
-         forceSync: true
-       });
-
-       this.markdown_area.codemirror.on("change", function () {
-         this.setState({
-           comment: this.markdown_area.value()
-         });
-       }.bind(this));
-    },
-
-    componentWillUnmount: function () {
-      if(this.markdown_area) {
-        this.markdown_area.toTextArea();
-        this.markdown_area = null;
-      }
     },
 
     enableBtn: function () {
@@ -57,7 +39,6 @@
           comment: ""
         });
 
-        this.markdown_area.value("");
         PostUtil.createPost({post: this.state});
       } else {
         // disable message sayig to verify that they are not a bot
@@ -77,7 +58,7 @@
 
           <div>
             <label>Comment
-              <textarea id="comment-textarea" name="post[comment]" rows="8"/>
+              <textarea name="post[comment]" valueLink={this.linkState('comment')} rows="8"/>
             </label>
           </div>
 
