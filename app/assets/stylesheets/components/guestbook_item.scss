@@ -3,9 +3,12 @@
 .guestbook-item {
   width: 376px;
   position: relative;
-  border: 1px solid $base-color-pink-dark;
+  border: 1px solid black;
   padding: 15px;
   margin-bottom: 20px;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: $base-color-white;
 
   .item-header {
     display: flex;
@@ -17,6 +20,35 @@
     }
     .timestamp {
       font-weight: 300;
+    }
+  }
+
+  .ribbon {
+    padding:0 0 10px 0;
+    position:absolute;
+    right:1.25em;
+    top:-0.25em;
+    width:40px;
+  
+    div {
+      background:$base-color-pink-dark;
+      background: linear-gradient($base-color-pink-light 0%, $base-color-pink-dark 100%);
+      color:#fff;
+      padding:0.5em 0;
+      text-align:center;
+      text-shadow:-1px -1px 0 rgba(0, 0, 0, 0.5);
+    }
+  
+    div:after {
+      border-left: 20px solid $base-color-pink-dark;
+      border-right: 20px solid $base-color-pink-dark;
+      border-bottom: 10px solid transparent;
+      bottom:0;
+      content:'';
+      height: 0;
+      left:0;
+      position:absolute;
+      width: 0;
     }
   }
 }
